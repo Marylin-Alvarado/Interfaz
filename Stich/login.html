@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportBoard - Login</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e90ff 0%, #00e6e6 100%);
+        }
+        .login-bg {
+            min-height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-container {
+            background: #fff;
+            border-radius: 24px;
+            box-shadow: 0 12px 40px rgba(30,144,255,0.18);
+            padding: 2.5rem 2rem 2rem 2rem;
+            max-width: 370px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+        }
+        .login-avatar {
+            font-size: 4rem;
+            color: #1e90ff;
+            margin-bottom: 0.5rem;
+        }
+        .login-title {
+            color: #1e90ff;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+        .input-group {
+            display: flex;
+            align-items: center;
+            background: #f0f8ff;
+            border-radius: 24px;
+            margin-bottom: 1.1rem;
+            padding: 0.2rem 1rem;
+            border: 1px solid #e0e0e0;
+        }
+        .input-icon {
+            color: #1e90ff;
+            font-size: 1.2rem;
+            margin-right: 0.7rem;
+        }
+        .input-group input {
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 1rem;
+            padding: 0.8rem 0;
+            width: 100%;
+            color: #222;
+        }
+        .login-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.95rem;
+            margin-bottom: 1.1rem;
+            color: #555;
+        }
+        .login-options .forgot {
+            color: #1e90ff;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 0.8rem 0;
+            background: linear-gradient(90deg, #1e90ff 60%, #00e6e6 100%);
+            color: #fff;
+            border: none;
+            border-radius: 24px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 0.7rem;
+            box-shadow: 0 2px 8px rgba(30,144,255,0.10);
+            transition: background 0.2s, transform 0.2s;
+        }
+        .login-btn:hover {
+            background: linear-gradient(90deg, #00e6e6 0%, #1e90ff 100%);
+            transform: scale(1.04);
+        }
+        .register-link {
+            font-size: 0.97rem;
+            margin-bottom: 0.5rem;
+            color: #222;
+        }
+        .register-link a {
+            color: #1e90ff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        #message {
+            min-height: 1.5em;
+            margin-top: 0.5em;
+            font-weight: bold;
+        }
+        @media (max-width: 600px) {
+            .login-container {
+                padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+                max-width: 98vw;
+            }
+            .login-title {
+                font-size: 1.1rem;
+            }
+            .login-avatar {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-bg">
+        <div class="login-container" id="login-container">
+            <div class="login-avatar">
+                <i class="fa fa-user-circle"></i>
+            </div>
+            <h2 class="login-title">Member Login</h2>
+            <form id="login-form">
+                <div class="input-group">
+                    <span class="input-icon"><i class="fa fa-envelope"></i></span>
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="input-group password-group">
+                    <span class="input-icon"><i class="fa fa-lock"></i></span>
+                    <input type="password" name="pass" placeholder="Password" required id="login-password">
+                    <span class="toggle-password" data-target="login-password"><i class="fa fa-eye"></i></span>
+                </div>
+                <div class="login-options">
+                    <label><input type="checkbox"> Remember me</label>
+                    <a href="#" class="forgot">Forgot Password?</a>
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+                <div class="register-link">
+                    Not a member? <a href="#" id="show-register">Create an account</a>
+                </div>
+            </form>
+            <form id="register-form" style="display:none;">
+                <div class="input-group">
+                    <span class="input-icon"><i class="fa fa-user"></i></span>
+                    <input type="text" name="newuser" placeholder="Name" required>
+                </div>
+                <div class="input-group">
+                    <span class="input-icon"><i class="fa fa-envelope"></i></span>
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="input-group password-group">
+                    <span class="input-icon"><i class="fa fa-lock"></i></span>
+                    <input type="password" name="newpass" placeholder="Password" required id="register-password">
+                    <span class="toggle-password" data-target="register-password"><i class="fa fa-eye"></i></span>
+                </div>
+                <button type="submit" class="login-btn">Register</button>
+                <div class="register-link">
+                    Already have an account? <a href="#" id="show-login">Login</a>
+                </div>
+            </form>
+            <div id="message"></div>
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

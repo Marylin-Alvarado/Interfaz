@@ -1,0 +1,18 @@
+/* Estilos base para SportBoard */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f7f8fa;
+    margin: 0;
+    color: #222;
+}
+header, nav, main, footer {
+    width: 100%;
+    box-sizing: border-box;
+}
+:root {
+    --primary: #1a7f64;
+    --secondary: #f5b041;
+    --bg: #f7f8fa;
+    --card: #fff;
+    --border: #e0e0e0;
+}
